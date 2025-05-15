@@ -65,7 +65,7 @@ dependencies:
       url: https://github.com/lppcg/fl_lib
       ref: v1.0.289
 dependency_overrides:
-  meta: ^1.16.0
+  meta: ^1.15.0
   # webdav_client_plus:
   #   path: ../webdav_client
   # dartssh2:
