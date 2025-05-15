@@ -73,7 +73,7 @@ class MainActivity: FlutterFragmentActivity() {
                 )
             } catch (e: Exception) {
                 // Log error but don't crash
-                android.util.Log.e("MainActivity", "Failed to request permissions: ${e.message}")
+                android.util.Log.e("MainActivity", "Failed to to request permissions: ${e.message}")
             }
         }
     }
