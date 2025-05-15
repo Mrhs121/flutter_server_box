@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: Flutter CI and Release
+=======
+name: Flutter CI
+>>>>>>> 7eb0a1ea (disable Signing)
 
 # 创建触发打包条件：只要推送 tag，就会触发版本打包
 on:
@@ -38,4 +42,8 @@ jobs:
       uses: ncipollo/release-action@v1.5.0
       with:
         artifacts: "build/app/outputs/apk/release/*.apk"
+<<<<<<< HEAD
         token: ${{ secrets.GITHUB_TOKEN }}
+=======
+        token: ${{ secrets.GITHUB_TOKEN }}
+>>>>>>> 7eb0a1ea (disable Signing)
