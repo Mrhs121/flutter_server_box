@@ -27,17 +27,9 @@ jobs:
           java-version: "17"
       - name: Build
         run: flutter build apk --release --target-platform android-arm,android-arm64,android-x64 --no-shrink
-      - name: Rename for fdroid
-        run: |
-          mv build/app/outputs/flutter-apk/${{ env.APP_NAME }}_${{ env.BUILD_NUMBER }}_arm64.apk build/app/outputs/flutter-apk/${{ env.APP_NAME }}_v1.0.${{ env.BUILD_NUMBER }}_arm64.apk
-          mv build/app/outputs/flutter-apk/${{ env.APP_NAME }}_${{ env.BUILD_NUMBER }}_arm.apk build/app/outputs/flutter-apk/${{ env.APP_NAME }}_v1.0.${{ env.BUILD_NUMBER }}_arm.apk
-          mv build/app/outputs/flutter-apk/${{ env.APP_NAME }}_${{ env.BUILD_NUMBER }}_amd64.apk build/app/outputs/flutter-apk/${{ env.APP_NAME }}_v1.0.${{ env.BUILD_NUMBER }}_amd64.apk
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
+      # Release APK
+      - name: Release apk
+        uses: ncipollo/release-action@v1.5.0
         with:
-          files: |
-            build/app/outputs/flutter-apk/${{ env.APP_NAME }}_v1.0.${{ env.BUILD_NUMBER }}_arm64.apk
-            build/app/outputs/flutter-apk/${{ env.APP_NAME }}_v1.0.${{ env.BUILD_NUMBER }}_arm.apk
-            build/app/outputs/flutter-apk/${{ env.APP_NAME }}_v1.0.${{ env.BUILD_NUMBER }}_amd64.apk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: "build/app/outputs/apk/release/*.apk"
+          token: ${{ secrets.GITHUB_TOKEN }}
