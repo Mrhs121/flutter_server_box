@@ -26,7 +26,7 @@ jobs:
           distribution: "zulu"
           java-version: "17"
       - name: Build
-        run: flutter build apk --release --target-platform android-arm,android-arm64,android-x64
+        run: flutter build apk --release --target-platform android-arm,android-arm64,android-x64 --no-shrink
       - name: Rename for fdroid
         run: |
           mv build/app/outputs/flutter-apk/${{ env.APP_NAME }}_${{ env.BUILD_NUMBER }}_arm64.apk build/app/outputs/flutter-apk/${{ env.APP_NAME }}_v1.0.${{ env.BUILD_NUMBER }}_arm64.apk
