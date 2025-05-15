@@ -31,7 +31,7 @@ jobs:
     - run: flutter pub get
     
     # Build APK using debug signature
-    - run: flutter build apk --release --target-platform android-arm --no-shrink
+    - run: flutter build apk --release --target-platform android-arm,android-arm64 --no-shrink
     
     # Release APK
     - name: Release apk
