@@ -1,4 +1,4 @@
-name: Flutter Release
+name: Unsigned APK Release
 
 on:
   workflow_dispatch:
